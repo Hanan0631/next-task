@@ -26,7 +26,6 @@ const fetchUsers = async ({
   const totalPages = users.length / 5;
   const start = (page - 1) * 5;
   const paginated = users.slice(start, start + 5);
-
   return { users: paginated, totalPages };
 };
 

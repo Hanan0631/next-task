@@ -15,6 +15,7 @@ function SearchUsers({ search }) {
       router.push(`?${params.toString()}`);
     }, 500);
     return () => clearTimeout(debounce);
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchValue]);
 
   return (
