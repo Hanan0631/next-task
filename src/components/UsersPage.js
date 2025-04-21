@@ -26,45 +26,59 @@ function UsersPage({ users, totalPages, page, sortField, sortOrder }) {
 
   return (
     <div className="space-y-4">
-      
-
-      <div className="overflow-x-auto">
-        <table className="table max-w-3xl m-auto">
-          <thead className="bg-[#e0ebeb]">
-            <tr>
-              <th onClick={() => toggleSort("id")} className="w-1/12 cursor-pointer  text-[#24527a]">
-                Id{" "}
-                {sortField === "id" ? (sortOrder === "asc" ? "↑" : "↓") : null}
-              </th>
-              <th onClick={() => toggleSort("name")} className="w-1/4 cursor-pointer  text-[#24527a]">
-                Name{" "}
-                {sortField === "name"
-                  ? sortOrder === "asc"
-                    ? "↑"
-                    : "↓"
-                  : null}
-              </th>
-              <th onClick={() => toggleSort("username")} className="w-1/4 cursor-pointer  text-[#24527a]">
-                Username{" "}
-                {sortField === "username"
-                  ? sortOrder === "asc"
-                    ? "↑"
-                    : "↓"
-                  : null}
-              </th>
-              <th onClick={() => toggleSort("email")} className="w-1/4 cursor-pointer  text-[#24527a]">
-                Email{" "}
-                {sortField === "email"
-                  ? sortOrder === "asc"
-                    ? "↑"
-                    : "↓"
-                  : null}
-              </th>
-            </tr>
-          </thead>
-          <tbody className="bg-[#e0ebeb]">
-            {users.length ? (
-              users.map((user) => (
+      {users.length ? (
+        <div className="overflow-x-auto">
+          <table className="table max-w-3xl m-auto">
+            <thead className="bg-[#e0ebeb]">
+              <tr>
+                <th
+                  onClick={() => toggleSort("id")}
+                  className="w-1/12 cursor-pointer  text-[#24527a]"
+                >
+                  Id{" "}
+                  {sortField === "id"
+                    ? sortOrder === "asc"
+                      ? "↑"
+                      : "↓"
+                    : null}
+                </th>
+                <th
+                  onClick={() => toggleSort("name")}
+                  className="w-1/4 cursor-pointer  text-[#24527a]"
+                >
+                  Name{" "}
+                  {sortField === "name"
+                    ? sortOrder === "asc"
+                      ? "↑"
+                      : "↓"
+                    : null}
+                </th>
+                <th
+                  onClick={() => toggleSort("username")}
+                  className="w-1/4 cursor-pointer  text-[#24527a]"
+                >
+                  Username{" "}
+                  {sortField === "username"
+                    ? sortOrder === "asc"
+                      ? "↑"
+                      : "↓"
+                    : null}
+                </th>
+                <th
+                  onClick={() => toggleSort("email")}
+                  className="w-1/4 cursor-pointer  text-[#24527a]"
+                >
+                  Email{" "}
+                  {sortField === "email"
+                    ? sortOrder === "asc"
+                      ? "↑"
+                      : "↓"
+                    : null}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-[#e0ebeb]">
+              {users.map((user) => (
                 <tr
                   key={user.id}
                   onClick={() => dispatch(selectUser(user))}
@@ -75,15 +89,15 @@ function UsersPage({ users, totalPages, page, sortField, sortOrder }) {
                   <td>{user.username}</td>
                   <td>{user.email}</td>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td>No users found</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </div>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      ) : (
+        <div className="flex justify-center mt-20 text-2xl">
+          <h3>No users found!</h3>
+        </div>
+      )}
       <div className="flex justify-center gap-2">
         {totalPages > 1 &&
           Array.from({ length: totalPages }, (_, i) => {
