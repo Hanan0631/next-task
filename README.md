@@ -27,7 +27,7 @@ A full-featured user management app built with *Next.js 15* using *Server-Side R
 - *SSR-Only* architecture (No window dependency in core logic)
 - *Query-based filtering* for search, page, sortField, sortOrder
 - *Modal* for showing detailed user information
-- *Dark/Light 
+- *Dark/Light mode
 ---
 
 ## Getting Started
